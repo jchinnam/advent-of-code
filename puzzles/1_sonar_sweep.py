@@ -1,35 +1,36 @@
 #!/usr/bin/env
 
-filename = "../input/1_sonar_sweep.txt"
+def parse_input(filename):
+    with open(filename) as file:
+        depths = file.readlines()
+        depths = [int(d.rstrip()) for d in depths]
 
-# read in input
-with open(filename) as file:
-    depths = file.readlines()
-    depths = [int(d.rstrip()) for d in depths]
-
-# print("input size: ", len(depths))
+    return depths
 
 
-# PART 1
+def part_one(depths):
+    increase = 0
+    for i, d in enumerate(depths):
+        if i == 0: continue
 
-increase = 0
-for i, d in enumerate(depths):
-    if i == 0: continue
+        if d > depths[i - 1]:
+            increase += 1
 
-    if d > depths[i - 1]:
-        increase += 1
-
-print("part 1 answer: ", increase)
+    return increase
 
 
-# PART 2: sliding window
+def part_two(depths):
+    # in comparing the 2 windows, 2 middle values are shared
+    # i.e. in [199 200 208 210] it only matters that 210 > 199
 
-# in comparing 2 windows, 2 middle values are shared
-# i.e. in [199 200 208 210] it only matters that 210 > 199
+    increase = 0
+    for i in range(3, len(depths)):
+        if depths[i] > depths[i - 3]:
+            increase += 1
 
-increase = 0
-for i in range(3, len(depths)):
-    if depths[i] > depths[i - 3]:
-        increase += 1
+    return increase
 
-print("part 2 answer: ", increase)
+
+data = parse_input("../input/1_sonar_sweep.txt")
+print("part one:", part_one(data)) # 1722
+print("part two:", part_two(data)) # 1748
