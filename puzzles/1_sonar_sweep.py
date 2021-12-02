@@ -1,6 +1,6 @@
 #!/usr/bin/env
 
-filename = "../input/1_sea_floor.txt"
+filename = "../input/1_sonar_sweep.txt"
 
 # read in input
 with open(filename) as file:
