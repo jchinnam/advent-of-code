@@ -31,6 +31,6 @@ def part_two(depths):
     return increase
 
 
-data = parse_input("../input/1_sonar_sweep.txt")
+data = parse_input("input.txt")
 print("part one:", part_one(data)) # 1722
 print("part two:", part_two(data)) # 1748

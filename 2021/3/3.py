@@ -65,6 +65,6 @@ def part_two(lines):
     return oxygen * co2
 
 
-data = parse_input("../input/3_binary_diagnostic.txt")
+data = parse_input("input.txt")
 print("part one:", part_one(data)) # 841526
 print("part two:", part_two(data)) # 4790390

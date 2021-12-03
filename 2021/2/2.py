@@ -52,6 +52,6 @@ def part_two(dirs):
     return horiz * depth
 
 
-data = parse_input("../input/2_dive.txt")
+data = parse_input("input.txt")
 print("part one:", part_one(data)) # 1989265
 print("part two:", part_two(data)) # 2089174012
