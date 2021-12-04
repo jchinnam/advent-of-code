@@ -26,6 +26,19 @@ def parse_input(filename):
     return numbers, boards, locs
 
 
+def bingo(to_check):
+    '''
+    Check a list for a bingo by validating type.
+    If any elements are still strings, there is no bingo.
+    '''
+    is_bingo = True
+    for x in to_check:
+        if isinstance(x, str):
+            is_bingo = False
+
+    return is_bingo
+
+
 def score_board(num, boards, board_i):
     unmarked = 0
     board = boards[board_i]
@@ -46,23 +59,14 @@ def part_one(numbers, boards, locs):
             boards[t[0]][t[1]][t[2]] = int(boards[t[0]][t[1]][t[2]])  # "mark" by casting to int
 
             # check row for bingo
-            bingo = True
-            for x in boards[t[0]][t[1]]:
-                if isinstance(x, str):
-                    bingo = False
-            if bingo:
-                score = score_board(i, boards, t[0])
-                return t[0], score
+            row = boards[t[0]][t[1]]
+            if bingo(row):
+                return t[0], score_board(i, boards, t[0])
 
             # check column for bingo
-            bingo = True
             column = [row[t[2]] for row in boards[t[0]]]
-            for x in column:
-                if isinstance(x, str):
-                    bingo = False
-            if bingo:
-                score = score_board(i, boards, t[0])
-                return t[0], score
+            if bingo(column):
+                return t[0], score_board(i, boards, t[0])
 
 
 def part_two(numbers, boards, locs, p1_winner):
@@ -82,29 +86,20 @@ def part_two(numbers, boards, locs, p1_winner):
             boards[t[0]][t[1]][t[2]] = int(boards[t[0]][t[1]][t[2]])  # "mark" by casting to int
 
             # check row for bingo
-            bingo = True
-            for x in boards[t[0]][t[1]]:
-                if isinstance(x, str):
-                    bingo = False
-            if bingo:
+            row = boards[t[0]][t[1]]
+            if bingo(row):
                 boards_complete[t[0]] = True
 
                 if t[0] == last_board:
-                    score = score_board(i, boards, t[0])
-                    return score
+                    return score_board(i, boards, t[0])
 
             # check column for bingo
-            bingo = True
             column = [row[t[2]] for row in boards[t[0]]]
-            for x in column:
-                if isinstance(x, str):
-                    bingo = False
-            if bingo:
+            if bingo(column):
                 boards_complete[t[0]] = True
 
                 if t[0] == last_board:
-                    score = score_board(i, boards, t[0])
-                    return score
+                    return score_board(i, boards, t[0])
 
 
 
