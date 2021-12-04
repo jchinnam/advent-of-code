@@ -1,4 +1,4 @@
 # advent of code
-solutions to advent of code series; find puzzles at https://adventofcode.com
+solutions to the [advent of code](https://adventofcode.com) advent calendar programming puzzle series by [eric wastl](https://github.com/topaz).
 
-reddit family at [r/adventofcode](https://www.reddit.com/r/adventofcode/)
+reddit friends at [r/adventofcode](https://www.reddit.com/r/adventofcode/)
