@@ -45,3 +45,9 @@ day 7: ★★
 part 1: 0.23s
 part 2: 0.42s
 ```
+
+```
+day 8: ★★
+part 1: 0.52ms
+part 2: 7.07ms
+```
