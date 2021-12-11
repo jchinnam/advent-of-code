@@ -5,7 +5,6 @@ def parse_input(filename):
         lines = file.readlines()
         lines = [list(l.rstrip()) for l in lines]
 
-    print(lines)
     return lines
 
 
@@ -48,12 +47,11 @@ def part_two(data):
             elif len(stack) != 0 and stack[-1] == close_to_open[char]: # if top is match, pop stack
                 stack.pop()
             else:
-                corrupted = True
-                break # corrupted, exit this line
+                corrupted = True # corrupted, exit this line
+                break
 
         # if stack not empty when loop completes, it is incomplete
         if not corrupted and len(stack) != 0:
-            print(stack)
 
             # build completion string and calculate points
             while len(stack) > 0:
