@@ -61,17 +61,16 @@ def part_one(numbers, boards, locs):
             # check row for bingo
             row = boards[t[0]][t[1]]
             if bingo(row):
-                return t[0], score_board(i, boards, t[0])
+                return score_board(i, boards, t[0])
 
             # check column for bingo
             column = [row[t[2]] for row in boards[t[0]]]
             if bingo(column):
-                return t[0], score_board(i, boards, t[0])
+                return score_board(i, boards, t[0])
 
 
-def part_two(numbers, boards, locs, p1_winner):
+def part_two(numbers, boards, locs):
     boards_complete = [False]*len(boards)
-    boards_complete[p1_winner] = True
     last_board = None
 
     for i in numbers:
@@ -104,6 +103,6 @@ def part_two(numbers, boards, locs, p1_winner):
 
 
 numbers, boards, locs = parse_input("input.txt")
-winner, score = part_one(numbers, boards, locs)
-print("part one:", score) # 44088
-print("part two:", part_two(numbers, boards, locs, winner)) # 23670
+print("part one:", part_one(numbers, boards, locs)) # 44088
+numbers, boards, locs = parse_input("input.txt")
+print("part two:", part_two(numbers, boards, locs)) # 23670
