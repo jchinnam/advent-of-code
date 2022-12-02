@@ -17,5 +17,5 @@ def part_two(data):
 
 
 data = parse_input("input.txt")
-print("part one:", part_one(data)) #
-print("part two:", part_two(data)) #
+print("part one:", part_one(data))  #
+print("part two:", part_two(data))  #
