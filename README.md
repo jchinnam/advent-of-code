@@ -5,4 +5,4 @@ reddit friends at [r/adventofcode](https://www.reddit.com/r/adventofcode/)
 
 ## years
 - [2021](/2021/): 25 `*`
-- [2022](/2022/): 4 `*`
+- [2022](/2022/): 8 `*`
